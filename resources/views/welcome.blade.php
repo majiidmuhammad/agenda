@@ -41,7 +41,7 @@
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Data Kelas</p>
                                      <div class="">{{ $jumlahkelas }}</div>
                                 </div>
-                            </div>
+                            </div>  
                             <div class="col-4 text-end">
                                 <div>
                                     <img src="https://img.icons8.com/fluency/48/undefined/teacher.png"/>

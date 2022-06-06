@@ -76,17 +76,15 @@ Route::put('/updatedataagenda/{id}',[AgendaController::class, 'updatedataagenda'
 Route::get('/deletedataagenda/{id}',[AgendaController::class, 'deletedataagenda'])->name('deletedataagenda')->middleware('auth');
 
 // data mapel
-Route::get('/datamapel',[MapelController::class, 'index'])->name('mapel')->middleware('auth');
+Route::get('/mapel', [MapelController::class, 'mapel'])->name('mapel');
 
-Route::get('/tambahmapel',[MapelController::class, 'tambahmapel'])->name('tambahmapel')->middleware('auth');
+Route::get('/tambahmapel', [MapelController::class, 'create'])->name('tambahmapel');
+Route::post('/insertmapel', [MapelController::class, 'store'])->name('insertmapel');
 
-Route::post('/insertdatamapel',[MapelController::class, 'insertdatamapel'])->name('insertdatamapel')->middleware('auth');
+Route::get('/editmapel/{id}', [MapelController::class, 'tampilan'])->name('editmapel');
+Route::put('/updatemapel/{id}', [MapelController::class, 'update'])->name('updatemapel');
 
-Route::get('/tampilkandatamapel/{id}',[MapelController::class, 'tampilkandatamapel'])->name('tampilkandatamapel')->middleware('auth');
-
-Route::put('/updatedatamapel/{id}',[MapelController::class, 'updatedatamapel'])->name('updatedatamapel')->middleware('auth');
-
-Route::get('/deletedatamapel/{id}',[MapelController::class, 'deletedatamapel'])->name('deletedatamapel')->middleware('auth');
+Route::get('/deletemapel/{id}', [MapelController::class, 'destroy'])->name('deletemapel');
 
 // login
 

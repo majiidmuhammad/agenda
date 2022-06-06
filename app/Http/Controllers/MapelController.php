@@ -2,44 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\mapel;
+use App\Models\Mapel;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
 {
-    public function index(){
-
-        $data = mapel::all();
-        return view('/datamapel', compact('data'));
+    public function mapel(){
+        $data = Mapel::paginate(5) ;
+        return view('datamapel', compact('data'), ["title" => "Data Mapel"]);
     }
 
-    public function tambahmapel(){
-        return view('tambahdatamapel');
+    public function create(){
+        return view('tambahmapel', ["title" => "Add Data Mapel"]);
     }
 
-    public function insertdatamapel(Request $request){
+    public function store(Request $request){
+        // dd($request->all());
+
         $this->validate($request, [
             'mapel' => 'required',
         ]);
-        mapel::create($request->all());   
-        return redirect()->route('mapel')->with('success', 'Data Berhasil Ditambahkan');
+    
+        Mapel::create($request->all());
+        return redirect()->route('mapel');
     }
 
-    public function tampilkandatamapel($id){
-
-        $data = mapel::find($id);
-        return view('editdatamapel', compact('data'));
+    public function tampilan($id){
+        $data = Mapel::find($id);
+        return view('editdatamapel', compact('data'), ["title" => "Edit Data Mapel"]);
     }
 
-    public function updatedatamapel(Request $request, $id){
-        $data = mapel::find($id);
+    public function update(Request $request, $id){
+        $data = Mapel::find($id);
         $data->update($request->all());
-        return redirect()->route('mapel')->with('success', 'Data Berhasil Diedit');
+        return redirect()->route('mapel');
     }
 
-    public function deletedatamapel($id){
-        $data = mapel::find($id);
+    public function destroy($id){
+        $data = Mapel::find($id);
         $data->delete();
-        return redirect()->route('mapel')->with('success', 'Data Berhasil Didelete');
+        return redirect()->route('mapel');
     }
 }

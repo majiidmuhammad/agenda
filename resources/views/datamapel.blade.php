@@ -30,8 +30,8 @@
                                     <th scope="row">{{ $no++ }}</th>
                                     <td>{{ $row->mapel }}</td>
                                     <td>
-                                        <a href="/tampilkandatamapel/{{ $row->id }}" class="btn btn-warning">Edit</a>
-                                        <a href="/deletedatamapel/{{ $row->id }}" type="button"
+                                        <a href="/editmapel/{{ $row->id }}" class="btn btn-warning">Edit</a>
+                                        <a href="/deletemapel/{{ $row->id }}" type="button"
                                             class="btn btn-danger">Hapus</a>
                                     </td>
                                 </tr>
