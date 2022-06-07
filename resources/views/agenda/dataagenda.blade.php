@@ -35,16 +35,16 @@
                     @php
                     $no = 1;
                     @endphp
-                    @foreach ($data as $row)
+                    @foreach ($data as $index => $row)
                     <tr>
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $row->namaguru }}</td>
-                        <td>{{ $row->matapelajaran }}</td>
+                        <td>{{ $row->mapel }}</td>
                         <td>{{ $row->materipelajaran }}</td>
                         <td>{{ $row->mulai }}</td>
                         <td>{{ $row->selesai }}</td>
                         <td>{{ $row->ketsiswa }} tidak hadir</td>
-                        <td>{{ $row->kelas }}</td>
+                        <td>{{ $row->kelasagenda->kelas }}</td>
                         <td>{{ $row->jenispembelajaran }}</td>
                         <td>{{ $row->linkpembelajaran }}</td>
                         <td>
@@ -53,8 +53,8 @@
                         </td>
                         <td>{{ $row->keterangan }}</td>
                         <td>
-                            <a href="/tampilkandataagenda/{{ $row->id }}"><img style="width: 40px;" src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png"/></a>
-                            <a href="/deletedataagenda/{{ $row->id }}" type="button" ><img style="width: 40px;" src="https://img.icons8.com/fluency/48/undefined/filled-trash.png"/></a>
+                            <a href="/tampilkandataagenda/{{ $row->id_agenda}}"><img style="width: 40px;" src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png"/></a>
+                            <a href="/deletedataagenda/{{ $row->id_agenda}}" type="button" ><img style="width: 40px;" src="https://img.icons8.com/fluency/48/undefined/filled-trash.png"/></a>
                         </td>
                     </tr>
                     @endforeach
@@ -63,7 +63,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   </div>
 

@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('gurus', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('password');
             $table->string('namaguru');
-            $table->bigInteger('nik');
-            $table->string('matapelajaran');
+            $table->string('mapel_id'); //mengambil data mapel
+            $table->bigInteger('nik')->unique();
+            $table->string('user_id'); // mengambil data username(email) dan password
             $table->timestamps();
         });
     }

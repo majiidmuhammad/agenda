@@ -10,7 +10,7 @@ class Mapel extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function gurumapel(){
-        return $this->hasMany(Guru::class);
+    public function mapelguru(){
+        return $this->hasMany(guru::class);
     }
 }

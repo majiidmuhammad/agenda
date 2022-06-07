@@ -15,20 +15,13 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                            <input type="text" name="namaguru" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <select class="form-select" name="guru_id">
+                                <option selected>Select Guru</option>
+                                @foreach($dataguru as $data)
+                                <option value="{{$data->id}}">{{$data->guru}}</option>
+                                @endforeach
+                            </select>
                             @error('namaguru')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Mapel</label>
-                            <input type="text" name="matapelajaran" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                            @error('matapelajaran')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -81,8 +74,12 @@
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Kelas</label>
-                            <input type="text" name="kelas" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <select class="form-select" name="kelas_id">
+                                <option selected>Select Kelas</option>
+                                @foreach($datakelas as $data3)
+                                <option value="{{$data3->id}}">{{$data3->kelas}}</option>
+                                @endforeach
+                            </select>
                             @error('kelas')
                             <div class="text-danger">
                                 {{ $message }}

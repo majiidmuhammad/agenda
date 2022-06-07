@@ -15,20 +15,17 @@
                         @method('put')
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                            <input type="text" name="namaguru" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{ $data->namaguru }}">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Mapel</label>
-                            <input type="text" name="matapelajaran" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{ $data->matapelajaran }}">
+                            <select class="form-select" name="guru_id" value="">
+                                @foreach($dataguru as $data2)
+                                <option value="{{$data2->id}}">{{$data2->guru}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Materi Pembelajaran</label>
                             <input type="text" name="materipelajaran" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{ $data->materipelajaran }}">
+                                aria-describedby="emailHelp" value="{{$data->materipembelajaran}}">
                         </div>
 
                         <div class="mb-3">
@@ -51,8 +48,11 @@
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Kelas</label>
-                            <input type="text" name="kelas" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{ $data->kelas }}">
+                            <select class="form-select" name="kelas_id" value="">
+                                @foreach ($datakelas as $item)
+                                <option value="{{$item->id}}" selected>{{$item->kelas}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
 
@@ -70,7 +70,7 @@
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Masukan Foto</label>
-                            <input Type="file" value="{{ $data->dokumentasi }}" name="dokumentasi"  class="form-control">
+                            <input Type="file" value="{{ $data->dokumentasi }}" name="dokumentasi" class="form-control">
                             <img src="/dokumentasifoto/{{ $data->dokumentasi }}" width="300px">
                         </div>
 

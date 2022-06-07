@@ -30,17 +30,19 @@
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($data as $row)
+                                @foreach($data as $index => $row)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <td>{{ $row->username }}</td>
-                                    <td>{{ $row->password }}</td>
                                     <td>{{ $row->namaguru }}</td>
                                     <td>{{ $row->nik }}</td>
-                                    <td>{{ $row->matapelajaran }}</td>
+                                    <td>{{$row->gurumapel->mapel}}</td>
+                                    <td>{{$row->guruuser->email}}</td>
+                                    <td>{{$row->guruuser->password}}</td>
                                     <td>
-                                        <a href="/tampilkandataguru/{{ $row->id }}"><img style="width: 40px;" src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png"/></a>
-                                        <a href="/deletedataguru/{{ $row->id }}"> <img style="width: 40px;" src="https://img.icons8.com/fluency/48/undefined/filled-trash.png"/></a>
+                                        <a href="/tampilkandataguru/{{ $row->id }}"><img style="width: 40px;"
+                                                src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png" /></a>
+                                        <a href="/deletedataguru/{{ $row->id }}"> <img style="width: 40px;"
+                                                src="https://img.icons8.com/fluency/48/undefined/filled-trash.png" /></a>
                                     </td>
                                 </tr>
                                 @endforeach

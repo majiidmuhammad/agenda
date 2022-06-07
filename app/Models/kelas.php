@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class kelas extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
+
+    public function kelasagenda(){
+        return $this->hasMany(Agenda::class);
+    }
+
+    public function kelasguru(){
+        return $this->belongsTo(Guru::class, 'guru_id', 'id');;
+    }
 }

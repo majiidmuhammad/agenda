@@ -5,6 +5,7 @@ use App\Models\kelas;
 use App\Models\agenda;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\ViewController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
@@ -22,6 +23,16 @@ use App\Http\Controllers\RegisterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// login
+Route::get('/', [LoginController::class, 'index'])->name('login');
+
+Route::post('/', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+
+Route::post('/register', [RegisterController::class, 'store']);
 
 
 Route::get('/dashboard', function () {
@@ -86,15 +97,9 @@ Route::put('/updatemapel/{id}', [MapelController::class, 'update'])->name('updat
 
 Route::get('/deletemapel/{id}', [MapelController::class, 'destroy'])->name('deletemapel');
 
-// login
+// view guru
+Route::get('/guru', [ViewController::class, 'index'])->name('guru');
 
-Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
-
-Route::post('/', [LoginController::class, 'authenticate']);
-
-Route::post('/logout', [LoginController::class, 'logout']);
-
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/tambahdataview',[ViewController::class, 'tambahdataview'])->name('tambahdataview')->middleware('auth');
+Route::post('/insertdataview',[ViewController::class, 'insertdataview'])->name('insertdataview')->middleware('auth');
 

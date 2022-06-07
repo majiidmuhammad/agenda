@@ -9,12 +9,16 @@ class KelasController extends Controller
 {
     public function index(){
 
-        $data = kelas::all();
-        return view('kelas./datakelas', compact('data'));
+        $datas = Kelas::select('kelas.*', 'gurus.*', 'kelas.id as id_kelas')
+		->leftJoin('gurus', 'kelas.guru_id', 'gurus.id')
+		->paginate(5);
+        return view('kelas./datakelas', compact('datas'));
     }
 
     public function tambahkelas(){
-        return view('kelas.tambahdatakelas');
+        return view('kelas.tambahdatakelas',[
+            'dataguru' => $dataguru
+        ]);
     }
 
     public function insertdatakelas(Request $request){
@@ -29,7 +33,8 @@ class KelasController extends Controller
     public function tampilkandatakelas($id){
 
         $data = kelas::find($id);
-        return view('kelas.editdatakelas', compact('data'));
+        $dataguru = guru::all();
+        return view('kelas.editdatakelas', compact('data', 'dataguru'));
     }
 
     public function updatedatakelas(Request $request, $id){

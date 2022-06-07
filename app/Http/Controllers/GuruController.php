@@ -10,12 +10,19 @@ class GuruController extends Controller
 {
     public function index(){
 
-        $data = guru::all();
-        return view('guru./dataguru', compact('data'));
+        $data = guru::with('guruuser','gurumapel');
+        return view('guru./dataguru',[
+            'data' => $data
+        ]);
     }
 
     public function tambahguru(){
-        return view('guru.tambahdataguru');
+        $datamapel = mapel::all();
+        $datauser = user::all();
+        return view('guru.tambahdataguru',[
+            'datamapel' => $datamapel,
+            'datauser' => $datauser
+        ]);
     }
 
     public function insertdataguru(Request $request){
@@ -33,7 +40,9 @@ class GuruController extends Controller
     public function tampilkandataguru($id){
 
         $data = guru::find($id);
-        return view('guru.editdataguru', compact('data'));
+        $datamapel = mapel::all();
+        $datauser = user::all();
+        return view('guru.editdataguru', compact('data', 'datamapel', 'datauser'));
     }
 
     public function updatedataguru(Request $request, $id){
