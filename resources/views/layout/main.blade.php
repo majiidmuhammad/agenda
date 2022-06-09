@@ -56,9 +56,8 @@
         <hr class="horizontal dark mt-0">
         <div class="  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                @auth
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="./pages/profile.html">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
@@ -66,9 +65,8 @@
                         {{auth()->user()->name}}
                     </a>
                 </li>
-                @else
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link " href="./pages/profile.html">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -76,11 +74,31 @@
                         </div>
                         <span class="nav-link-text ms-1">Profile</span>
                     </a>
+                </li> -->
+
+
+
+                
+                <li class="nav-item">
+                    <a class="nav-link " href="/guru">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Guru</span>
+                    </a>
                 </li>
-
-                @endauth
-
-
+                <form action="/logout" method="post">
+                        @csrf
+                        <button class="nav-link" Type="sumbit" style="background: transparent; border: none;">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Log Out</span>
+                        </button>
+                    </form>
+                @if (auth()->user()->role == 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">
                         <div
@@ -91,21 +109,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/dataguru">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Guru</span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link " href="/datakelas">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Data Kelas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/dataguru">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Guru</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -140,6 +158,7 @@
                         </button>
                     </form>
                 </li>
+                @endif
 
             </ul>
         </div>

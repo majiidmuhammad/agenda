@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('gurus', function (Blueprint $table) {
             $table->id();
             $table->string('namaguru');
-            $table->string('mapel_id'); //mengambil data mapel
-            $table->bigInteger('nik')->unique();
-            $table->string('user_id'); // mengambil data username(email) dan password
+            $table->foreignId('user_id'); // mengambil data username(email) dan password
+            $table->bigInteger('nik');
+            $table->foreignId('mapel_id'); //mengambil data mapel
             $table->timestamps();
         });
     }

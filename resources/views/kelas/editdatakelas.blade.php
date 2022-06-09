@@ -15,12 +15,19 @@
                         @method('put')
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Kelas</label>
-                            <input type="text" name="namakelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->namakelas }}">
+                            <input type="text" name="namakelas" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" value="{{ $data->namakelas }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Wali Kelas</label>
-                            <input type="text" name="walikelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->walikelas }}">
+                            <select class="form-select" name="guru_id" value="">
+                                @foreach ($dataguru as $item)
+                                <option value="{{$item->id}}">{{$item->namaguru}}</option>
+                                @endforeach
+                            </select>
+
+
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
 

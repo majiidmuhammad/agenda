@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-    public function welcome(){
+    // public function welcome(){
 
-        $datas = guru::all();
-        return view('/welcome');
-    }
+    //     $datas = guru::all();
+    //     return view('/welcome');
+    // }
 }

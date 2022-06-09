@@ -15,25 +15,30 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Kelas</label>
-                            <input type="text" name="namakelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            @error('Nama Kelas')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <input type="text" name="namakelas" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            @error('namakelas')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Wai Kelas</label>
-                            <input type="text" name="walikelas" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            @error('walikelas')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <select class="form-select" name="guru_id">
+                                <option selected>Select Guru</option>
+                                @foreach($dataguru as $data)
+                                <option value="{{$data->id}}">{{$data->namaguru}}</option>
+                                @endforeach
+                            </select>
+                            @error('guru_id')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
-                        </div>  
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-
                 </div>
             </div>
         </div>

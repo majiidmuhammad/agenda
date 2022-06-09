@@ -47,7 +47,7 @@ Route::get('/dashboard', function () {
 
 // Route::get('/',[WelcomeController::class, 'welcome']);
 
-Route::get('/dataguru',[GuruController::class, 'index'])->name('guru')->middleware('auth');
+Route::get('/dataguru',[GuruController::class, 'index'])->name('dataguru')->middleware('auth');
 
 Route::get('/tambahguru',[GuruController::class, 'tambahguru'])->name('tambahguru')->middleware('auth');
 
@@ -97,9 +97,9 @@ Route::put('/updatemapel/{id}', [MapelController::class, 'update'])->name('updat
 
 Route::get('/deletemapel/{id}', [MapelController::class, 'destroy'])->name('deletemapel');
 
-// view guru
-Route::get('/guru', [ViewController::class, 'index'])->name('guru');
+    // view guru
+    Route::get('/guru', [ViewController::class, 'index'])->name('guru');
 
-Route::get('/tambahdataview',[ViewController::class, 'tambahdataview'])->name('tambahdataview')->middleware('auth');
-Route::post('/insertdataview',[ViewController::class, 'insertdataview'])->name('insertdataview')->middleware('auth');
+    Route::get('/tambahdataview',[ViewController::class, 'tambahdataview'])->name('tambahdataview')->middleware('auth');
+    Route::post('/insertdataview',[ViewController::class, 'insertdataview'])->name('insertdataview')->middleware('auth');
 

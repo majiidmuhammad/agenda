@@ -44,7 +44,7 @@
                         <td>{{ $row->mulai }}</td>
                         <td>{{ $row->selesai }}</td>
                         <td>{{ $row->ketsiswa }} tidak hadir</td>
-                        <td>{{ $row->kelasagenda->kelas }}</td>
+                        <td>{{ $row->namakelas }}</td>
                         <td>{{ $row->jenispembelajaran }}</td>
                         <td>{{ $row->linkpembelajaran }}</td>
                         <td>

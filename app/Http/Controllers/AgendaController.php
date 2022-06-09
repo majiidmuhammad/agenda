@@ -17,8 +17,9 @@ class AgendaController extends Controller
         $data = Agenda::select('agendas.*', 'gurus.*', 'kelas.*', 'mapels.*', 'agendas.id as id_agenda')
 		->leftJoin('gurus', 'agendas.guru_id', 'gurus.id')
 		->leftJoin('kelas', 'kelas.id', 'agendas.kelas_id')
-		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id');
-        return view('agenda./dataagenda',[
+		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id')->get();
+        // dd($data);
+        return view('agenda.dataagenda',[
             'title' => 'Data Agenda',
             'data' => $data
         ]);

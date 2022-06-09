@@ -16,9 +16,9 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
                             <select class="form-select" name="guru_id">
-                                <option selected>Select Guru</option>
+                                 <option selected>Select Guru</option>
                                 @foreach($dataguru as $data)
-                                <option value="{{$data->id}}">{{$data->guru}}</option>
+                                <option value="{{$data->id}}">{{$data->namaguru}}</option>
                                 @endforeach
                             </select>
                             @error('namaguru')
@@ -76,8 +76,8 @@
                             <label for="exampleInputEmail1" class="form-label">Kelas</label>
                             <select class="form-select" name="kelas_id">
                                 <option selected>Select Kelas</option>
-                                @foreach($datakelas as $data3)
-                                <option value="{{$data3->id}}">{{$data3->kelas}}</option>
+                                @foreach($datakelas as $data)
+                                <option value="{{$data->id}}">{{$data->namakelas}}</option>
                                 @endforeach
                             </select>
                             @error('kelas')

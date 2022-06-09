@@ -39,20 +39,15 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
                             <select class="form-select" name="mapel_id">
-                                <option selected>Mata pelajaran</option>
+                                <option selected>Ubah Mata pelajaran</option>
                                 @foreach ($datamapel as $item)
                                 <option value="{{$item->id}}">{{$item->mapel}}</option>
                                 @endforeach
                             </select>
-                            @error('matapelajaran')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Use  rname</label>
+                            <label for="exampleInputEmail1" class="form-label">Use rname</label>
                             <input list="browsers" name="user_id" class="form-control" id="exampleInputEmail1">
                             @foreach($datauser as $data)
                             <datalist id="browsers">

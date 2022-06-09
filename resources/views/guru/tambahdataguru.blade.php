@@ -14,53 +14,54 @@
                     <form action="/insertdataguru" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            @error('username')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Password</label>
-                            <input type="text" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            @error('password')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
-                            <input type="text" name="namaguru" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="text" name="namaguru" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
                             @error('namaguru')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nik</label>
-                            <input type="text" name="nik" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="text" name="nik" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
                             @error('nik')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Mata Pelajaran</label>
-                            <input type="text" name="matapelajaran" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            @error('matapelajaran')
+                            <select class="form-select" name="mapel_id">
+                                <option selected>Select Mata Pelajaran</option>
+                                @foreach($datamapel as $data)
+                                <option value="{{$data->id}}">{{$data->mapel}}</option>
+                                @endforeach
+                                @error('mapel')
                                 <div class="text-danger">
-                                    {{ $message }}
+                                    {{$message}}
                                 </div>
-                            @enderror
+                                @enderror
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input list="browsers" name="user_id" class="form-control" id="exampleInputEmail1">
+                            @foreach($datauser as $data)
+                            <datalist id="browsers">
+                                <option value="{{$data->id}}">{{$data->email}}</option>
+                                @endforeach
+                                @error('user_id')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                                @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
 

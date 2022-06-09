@@ -16,8 +16,8 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Guru</label>
                             <select class="form-select" name="guru_id" value="">
-                                @foreach($dataguru as $data2)
-                                <option value="{{$data2->id}}">{{$data2->guru}}</option>
+                                @foreach($dataguru as $data)
+                                <option value="{{$data->id}}">{{$data->namaguru}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -50,7 +50,7 @@
                             <label for="exampleInputEmail1" class="form-label">Kelas</label>
                             <select class="form-select" name="kelas_id" value="">
                                 @foreach ($datakelas as $item)
-                                <option value="{{$item->id}}" selected>{{$item->kelas}}</option>
+                                <option value="{{$item->id}}">{{$item->namakelas}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -59,7 +59,7 @@
                         <select class="form-select" aria-label="Default select example">
                             <option selected>{{ $data->jenispembelajaran }}</option>
                             <option value="ptm">PTM</option>
-                            <option value="bdr">BDR</option>
+                            <option value="j">BDR</option>
                         </select>
 
                         <div class="mb-3">

@@ -26,14 +26,14 @@
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($data as $row)
+                                @foreach($datas as $index => $row)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
                                     <td>{{ $row->namakelas }}</td>
-                                    <td>{{ $row->walikelas }}</td>
+                                    <td>{{ $row->namaguru }}</td>
                                     <td>
-                                        <a href="/tampilkandatakelas/{{ $row->id }}"><img style="width: 40px;" src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png"/></a>
-                                        <a href="/deletedatakelas/{{ $row->id }}" type="button"><img style="width: 40px;" src="https://img.icons8.com/fluency/48/undefined/filled-trash.png"/></a>
+                                        <a href="/tampilkandatakelas/{{ $row->id_kelas }}"><img style="width: 40px;" src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png"/></a>
+                                        <a href="/deletedatakelas/{{ $row->id_kelas }}" type="button"><img style="width: 40px;" src="https://img.icons8.com/fluency/48/undefined/filled-trash.png"/></a>
                                     </td>
                                 </tr>
                                 @endforeach

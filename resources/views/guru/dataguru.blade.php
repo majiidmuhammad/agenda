@@ -18,11 +18,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">User Name</th>
-                                    <th scope="col">Password</th>
                                     <th scope="col">Nama Guru</th>
                                     <th scope="col">Nik</th>
                                     <th scope="col">Mata Pelajaran</th>
+                                    <th scope="col">User Name</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -37,7 +36,6 @@
                                     <td>{{ $row->nik }}</td>
                                     <td>{{$row->gurumapel->mapel}}</td>
                                     <td>{{$row->guruuser->email}}</td>
-                                    <td>{{$row->guruuser->password}}</td>
                                     <td>
                                         <a href="/tampilkandataguru/{{ $row->id }}"><img style="width: 40px;"
                                                 src="https://img.icons8.com/avantgarde/100/undefined/experimental-edit-avantgarde.png" /></a>
