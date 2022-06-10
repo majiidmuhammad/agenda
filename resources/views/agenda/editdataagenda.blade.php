@@ -25,7 +25,7 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Materi Pembelajaran</label>
                             <input type="text" name="materipelajaran" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{$data->materipembelajaran}}">
+                                aria-describedby="emailHelp" value="{{$data->materipelajaran}}">
                         </div>
 
                         <div class="mb-3">
